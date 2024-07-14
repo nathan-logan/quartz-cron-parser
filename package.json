@@ -4,7 +4,12 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev:tsc": "tsc --watch --preserveWatchOutput",
+    "dev:node": "node --enable-source-maps --watch dist/index.js",
+    "dev": "pnpm run \"/dev:/\"",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +18,8 @@
   "devDependencies": {
     "@total-typescript/tsconfig": "^1.0.4",
     "prettier": "3.3.3",
-    "typescript": "^5.5.3"
-  }
+    "typescript": "^5.5.3",
+    "vitest": "^2.0.2"
+  },
+  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
 }
