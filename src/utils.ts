@@ -1,4 +1,34 @@
-import type { CronField, CronRange, CronIncrement } from "./types.js";
+import type {
+  CronField,
+  CronIncrement,
+  CronRange,
+  FieldName,
+} from "./types.js";
+import { units } from "./units.js";
+
+/**
+ * A helper function that determines if every number between a min & max value
+ * is present inside of an array
+ */
+export const isRangeComplete = (values: number[], min: number, max: number) => {
+  const set = new Set(values);
+  for (let i = min; i <= max; i++) {
+    if (!set.has(i)) {
+      return false;
+    }
+  }
+  return true;
+};
+
+export const getUnit = (fieldName: FieldName) => {
+  const unit = units.get(fieldName);
+
+  if (!unit) {
+    throw new Error(`Failed to get unit config matching field "${fieldName}"`);
+  }
+
+  return unit;
+};
 
 /**
  * Given a cron field value, this function will assert if the value is a valid

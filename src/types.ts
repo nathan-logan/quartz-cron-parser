@@ -1,4 +1,4 @@
-export const FIELDS = [
+export const FIELD_NAMES = [
   "seconds",
   "minutes",
   "hours",
@@ -7,7 +7,7 @@ export const FIELDS = [
   "dayOfWeek",
   "year",
 ] as const;
-export type FieldName = (typeof FIELDS)[number];
+export type FieldName = (typeof FIELD_NAMES)[number];
 
 export type CronField = number | number[] | CronRange | CronIncrement;
 
@@ -34,3 +34,5 @@ export type UnitConfig = {
   min: number;
   max: number;
 };
+
+export type FieldsInput = Record<FieldName, CronField>;
